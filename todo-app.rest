@@ -1,0 +1,48 @@
+### GET /
+GET http://localhost:5000
+
+### POST /auth/register
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "username":"sakir",
+    "password":"sakir@123"
+}
+
+### POST /auth/login
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "username" : "sakir",
+    "password" : "sakir@123"
+}
+
+### GET /todos/ (protected)
+GET http://localhost:5000/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4MTg2OTg1LCJleHAiOjE3NDgyMzAxODV9.S4JmToJYGzQQtKKjRVMxznnRHwtaJtfDwX2Pt66KpN4
+
+### CREATE  POST /todos/ (protected)
+POST http://localhost:5000/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4MTg2OTg1LCJleHAiOjE3NDgyMzAxODV9.S4JmToJYGzQQtKKjRVMxznnRHwtaJtfDwX2Pt66KpN4
+Content-Type: application/json
+
+{
+    "task": "finished the backend course chapter 3"
+}
+
+### PUT /todos/:id (protected)
+PUT http://localhost:5000/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4MTg2OTg1LCJleHAiOjE3NDgyMzAxODV9.S4JmToJYGzQQtKKjRVMxznnRHwtaJtfDwX2Pt66KpN4
+Content-Type: application/json
+
+{
+    "completed" : 1
+}
+
+### DELETE /todos/:id
+DELETE http://localhost:5000/todos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ4MTg2OTg1LCJleHAiOjE3NDgyMzAxODV9.S4JmToJYGzQQtKKjRVMxznnRHwtaJtfDwX2Pt66KpN4
+
+
