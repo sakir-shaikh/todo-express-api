@@ -1,20 +1,20 @@
-# Use an official node.js runtime as a parent image
+# Use an official Node.js image
 FROM node:22-alpine
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the package.json and the package-lock.json files to the container
-COPY package*.json .
+# Copy package.json and lock files
+COPY package*.json ./
 
-# Install the dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the entire project
 COPY . .
 
-# Expose the port that the app runs on
+# Expose port
 EXPOSE 5003
 
-# Define the command to run your application
-CMD ["node", "./src/server.js"]
+# ✅ Generate Prisma client at container startup
+CMD ["sh", "-c", "npx prisma generate && node ./src/server.js"]
